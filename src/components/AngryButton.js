@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from "react";
 
-function AngryButton(){
+function AngryButton(props){
+  const [anger, setAnger] = useState(0);
   return (
-    <button className="AngryButton">
-      {/*If you have not reached the max */}<span>Don't click me too much!</span>
-      {/*If you HAVE reached the max */}<span>RAWR!</span>
+    <button className="AngryButton" style={{backgroundColor: `rgba(255,0,0,${anger})`}}>
+      {anger < 1 && <span>Don't click me too much!</span>}
+      {anger >= 1 && <span>RAWR!</span>}
     </button>
   );
 }
